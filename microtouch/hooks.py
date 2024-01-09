@@ -120,7 +120,7 @@ app_license = "mit"
 fixtures = [
     {
         'dt':'Property Setter',
-        'filters':[['doc_type','=','Item']]
+        'filters':[['name', 'like', 'Lead%']]
     },
     {
         'dt': 'Property Setter',
