@@ -1,0 +1,13 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Lead",
+  "enabled": 1,
+  "modified": "2024-01-08 13:34:57.984205",
+  "module": null,
+  "name": "Lead Assignment",
+  "script": "frappe.ui.form.on('Lead', {\n\trequest_type(frm) {\n\t    if (frm.doc.request_type == 'Product Enquiry' ){\n\t        frm.set_value('lead_owner','sales@microtouch.com')\n\t    }\n\t    else if (frm.doc.request_type =='Product Service'){\n\t        frm.set_value('lead_owner','service@microtouch.com')\n\t    }\n\t    else{\n\t        frm.set_value('lead_owner','')\n\t    }\n\t\t\n\t}\n})",
+  "view": "Form"
+ }
+]

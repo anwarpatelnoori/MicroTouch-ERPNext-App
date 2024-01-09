@@ -1,0 +1,369 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-12-27 15:03:23.240377",
+ "default_view": "List",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "contact_info",
+  "customer_name",
+  "mobile_no",
+  "customer_display",
+  "col_break4",
+  "contact_person",
+  "contact_email",
+  "status",
+  "engineer_to_be_assigned",
+  "engineer_name",
+  "product_and_warranty_details",
+  "product",
+  "warranty_status",
+  "turnaround_date",
+  "complaint_id",
+  "column_break1",
+  "brand",
+  "model_no__serial_no",
+  "turnaround_time_in_hours",
+  "section_break_7",
+  "product_issue",
+  "resolution_section_and_charges",
+  "resolution_date",
+  "column_break_oaps",
+  "resolved_by_engineer",
+  "section_break_sguw",
+  "resolution_details",
+  "costing_table",
+  "section_break_t1st",
+  "min_service_charge",
+  "discount",
+  "column_break_mrtc",
+  "spare_part_total",
+  "total_charges",
+  "_section",
+  "terms_and_conditions"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "oldfieldname": "naming_series",
+   "oldfieldtype": "Select",
+   "options": "SER-WRN-.YYYY.-",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "oldfieldname": "status",
+   "oldfieldtype": "Select",
+   "options": "\nOpen\nAssigned to Engineer\nWork In Progress\nCancelled by Customer\nCancelled by Engineer\nCompleted",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "label": "Product Issue"
+  },
+  {
+   "fieldname": "column_break1",
+   "fieldtype": "Column Break",
+   "oldfieldtype": "Column Break",
+   "width": "50%"
+  },
+  {
+   "fieldname": "resolution_date",
+   "fieldtype": "Datetime",
+   "label": "Resolution Date",
+   "no_copy": 1,
+   "oldfieldname": "resolution_date",
+   "oldfieldtype": "Date",
+   "search_index": 1
+  },
+  {
+   "fieldname": "resolution_details",
+   "fieldtype": "Text Editor",
+   "label": "Resolution Details",
+   "no_copy": 1,
+   "oldfieldname": "resolution_details",
+   "oldfieldtype": "Text"
+  },
+  {
+   "fieldname": "contact_info",
+   "fieldtype": "Section Break",
+   "label": "Customer Details",
+   "options": "fa fa-bullhorn"
+  },
+  {
+   "fetch_from": "customer_name.email_id",
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "Contact Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "col_break4",
+   "fieldtype": "Column Break",
+   "width": "50%"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Customer Name",
+   "oldfieldname": "customer",
+   "oldfieldtype": "Link",
+   "options": "Customer",
+   "print_hide": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "customer_name.mobile_no",
+   "fetch_if_empty": 1,
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No",
+   "options": "Phone"
+  },
+  {
+   "fetch_from": "customer_name.primary_address",
+   "fetch_if_empty": 1,
+   "fieldname": "customer_display",
+   "fieldtype": "Small Text",
+   "label": "Customer Address",
+   "read_only_depends_on": "customer_name"
+  },
+  {
+   "fieldname": "product_and_warranty_details",
+   "fieldtype": "Section Break",
+   "label": "Product and Warranty Details",
+   "oldfieldtype": "Section Break",
+   "options": "fa fa-ticket"
+  },
+  {
+   "fieldname": "product",
+   "fieldtype": "Link",
+   "label": "Product",
+   "options": "Product Category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "brand",
+   "fieldtype": "Link",
+   "label": "Brand",
+   "options": "Product Brand"
+  },
+  {
+   "fetch_from": ".maintenance_status",
+   "fieldname": "warranty_status",
+   "fieldtype": "Select",
+   "label": "Warranty Status",
+   "options": "\nUnder Warranty\nOut of Warranty",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "model_no__serial_no",
+   "fieldtype": "Data",
+   "label": "Model No / Serial No"
+  },
+  {
+   "fieldname": "product_issue",
+   "fieldtype": "Text Editor",
+   "label": "Product Issue",
+   "no_copy": 1,
+   "oldfieldname": "complaint",
+   "oldfieldtype": "Small Text",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_oaps",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "engineer_to_be_assigned",
+   "fieldtype": "Link",
+   "label": "Engineer to be Assigned",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "engineer_to_be_assigned.employee_name",
+   "fetch_if_empty": 1,
+   "fieldname": "engineer_name",
+   "fieldtype": "Data",
+   "label": "Engineer Name"
+  },
+  {
+   "default": "Today",
+   "fieldname": "turnaround_date",
+   "fieldtype": "Date",
+   "label": "Turnaround Date",
+   "oldfieldname": "complaint_date",
+   "oldfieldtype": "Date",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "turnaround_time_in_hours",
+   "fieldtype": "Duration",
+   "hide_seconds": 1,
+   "label": "Turnaround Time in Hours",
+   "oldfieldname": "complaint_date",
+   "oldfieldtype": "Date",
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_sguw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "engineer_to_be_assigned.employee_name",
+   "fetch_if_empty": 1,
+   "fieldname": "resolved_by_engineer",
+   "fieldtype": "Data",
+   "label": "Resolved By Engineer "
+  },
+  {
+   "fieldname": "resolution_section_and_charges",
+   "fieldtype": "Section Break",
+   "label": "Resolution and Charges",
+   "oldfieldtype": "Section Break",
+   "options": "fa fa-thumbs-up"
+  },
+  {
+   "default": "350",
+   "fieldname": "total_charges",
+   "fieldtype": "Currency",
+   "label": "Total Charges",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "discount",
+   "fieldtype": "Percent",
+   "label": "Discount",
+   "precision": "0"
+  },
+  {
+   "fieldname": "spare_part_total",
+   "fieldtype": "Currency",
+   "label": "Spare Part Total"
+  },
+  {
+   "default": "350",
+   "fieldname": "min_service_charge",
+   "fieldtype": "Currency",
+   "label": "Min Service Charge",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_t1st",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_mrtc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.warranty_status=='Under Warranty'\n",
+   "fieldname": "complaint_id",
+   "fieldtype": "Data",
+   "label": "Complaint ID"
+  },
+  {
+   "columns": 5,
+   "fieldname": "costing_table",
+   "fieldtype": "Table",
+   "label": "Costing Table",
+   "options": "Spares Parts"
+  },
+  {
+   "fetch_from": ".email_id",
+   "fieldname": "contact_person",
+   "fieldtype": "Data",
+   "label": "Contact Person"
+  },
+  {
+   "fieldname": "_section",
+   "fieldtype": "Section Break",
+   "label": " "
+  },
+  {
+   "default": "Repair charges listed are only service charges. Cost of the components replaced will be extra.\nIf components cost exceeds service charges that means, total including components cost exceeding double the service charges of the respective item, then only we can give you the estimate for your approval. Otherwise equipment will be repaired. The estimate is approximate and the actual repair charges may differ from the estimate.\nIf estimate is not approved, customer has to pay 100% service charges. If not repaired because of the non availability of parts or any other reason we won't charge.\nWe will show you the functionality of the repaired items in our office while you taking back, for your satisfaction.\nOnce delivered the Material after repairs will not carry any warranty on parts and service\nDefective parts are not preserved after repairs, hence these will not be returned to customer.\nPayment should be made against the delivery of the Material.\nThe original receipt must be produced while taking delivery of the equipment. Delivery may be refused if original receipt is not presented. An authorization letter is necessary from the authorized person on letter head, if original receipt is misplaced.\nThe equipment must be collected within 15 days after repair or not repair from the receipt date-in any condition, otherwise the company will have the right to dispose off your equipment at any price to recover the repair and other cost from proceeds.\nReasonable care will be taken of the equipment received for repair. However, the company is not liable for any loss or damage arised from accidents, fir, theft, riots or causes beyond our control\nWhile company will make every effort to carry out repairs as earlier as possible and it is expressly made cleat that the company shall not be liable to do so within any specified time or period. Average time taking to repair is 24 hours.",
+   "fetch_from": "terms.terms_and_conditions",
+   "fetch_if_empty": 1,
+   "fieldname": "terms_and_conditions",
+   "fieldtype": "Text Editor",
+   "label": "Terms and Conditions"
+  }
+ ],
+ "icon": "fa fa-bug",
+ "links": [],
+ "modified": "2024-01-08 13:39:30.353723",
+ "modified_by": "Administrator",
+ "module": "MicroTouch-ERPNext-App",
+ "name": "Product Service",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Maintenance User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "customer_name,mobile_no",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Blue",
+   "title": "Open"
+  },
+  {
+   "color": "Yellow",
+   "title": "Assigned to Engineer"
+  },
+  {
+   "color": "Orange",
+   "title": "Work In Progress"
+  },
+  {
+   "color": "Red",
+   "title": "Cancelled by Customer"
+  },
+  {
+   "color": "Purple",
+   "title": "Cancelled by Engineer"
+  },
+  {
+   "color": "Green",
+   "title": "Completed"
+  }
+ ],
+ "timeline_field": "customer_name",
+ "title_field": "customer_name"
+}
